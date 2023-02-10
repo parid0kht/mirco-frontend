@@ -1,0 +1,11 @@
+1. micro frontends
+2. micro frontend framework
+3. host pages
+
+difference between library and micro frontend:
+library -> collection of code that is compiled into your application. consumer opts for a new implementation. similar to an installed application
+service -> an external capability that you access from your application. provider provides a new implementation. similar to SaaS
+
+idea of micro frontend: think about a web app as a composition of features which are owned by different teams 
+pros:
+1. team scalability

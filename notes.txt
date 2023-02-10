@@ -1,0 +1,99 @@
+host app:
+1. npx create-mf-app
+2. host app which consume micro frontend from remote app
+    application
+    port 8080
+    solid js, javascript and tailwind
+
+remote app:
+1. npx create-mf-app
+    application
+    port 3000
+    solid js, javascript and tailwind
+
+
+3. how we are going to expose our counter from remote app to be used in host app -> use module federation
+extract counter into its own library and imported back into remote and host
+a change to the library and republish it
+
+
+lets change the counter and see the change on the host, change its style
+
+
+webpack configuration
+changing remote webpack and expose counter from remote 
+restart the remote application and go to http://localhost:3000/remoteEntry.js
+remoteEntry.js is a manifest of all expose modules
+
+how to use it? got to the host app, webpack config and update the remotes object
+add it to your host
+
+lets have a react-host, our react host does not know anything about solid js and we dont want to teach it
+we need to wrap our solidjs component as a universal component -> counter wrapper 
+
+
+
+
+
+
+
+no specific technology and only showing off the cross platform nature of micro front-ends
+
+SolidJS: 
+What is SolidJS? SolidJS is a declarative JavaScript library for building user interfaces.
+SolidJS is built on the same pattern as JavaScript libraries like React and Svelte which 
+makes it easy to adopt for developers with backgrounds in these libraries. SolidJS compiles its templates directly to the real DOM.
+
+Module Federation
+What Is Module Federation? Webpack Module Federation makes sharing code and dependencies between different code bases easier. 
+This architecture loads the code dynamically at runtime to reduce the frequency of code duplication,
+and the host application only downloads the missing dependencies, if any.
+
+MFE VS Module federation
+Module Federation enables faster builds by vertically slicing your application into smaller ones, 
+the MFE architecture layers independent deployments on top of federation.
+
+
+MF helps you to runtime share code between applications
+
+
+MF: https://www.syncfusion.com/blogs/post/what-is-webpack-module-federation-and-why-does-it-matter.aspx#:~:text=What%20Is%20Module%20Federation%3F,the%20missing%20dependencies%2C%20if%20any.
+
+MF made it easy to do runtime dependency shared components
+
+Zack Jackson, a Webpack maintainer, invented Module Federation, which became a flagship feature of Webpack 5 in 2020.
+It is not a framework but a plugin that provides flexibility in building your project.
+Even though Module Federation was initially for the asynchronous loading of JavaScript bundles, later on, it expanded to aid with server-side rendering.
+
+Before the introduction of Module Federation, code sharing tended not to be a smooth process. Micro-frontend implementation was also getting more complex.
+
+Module Federation is an architecture that addresses these issues and revolutionized the micro-frontend strategy.
+
+With Module Federation, an application runs code dynamically from another bundle or build with its code-sharing and functionality-consuming abilities during 
+runtime, paving the path to the successful utilization of micro-frontend technology. 
+In addition, the use of sharable dependencies improves the compactness of the application.
+
+MF terminology
+Host: webpack build
+Remote: webpack build which host can consume, its major functionality is to expose modules to be consumed.
+Bidirectional Host: can consume other apps or be consumed, this webpack build/bundle can act as host or remote at runtime
+Vendor Federation:
+
+Module Federation is configuration-based
+name: uniquely identified the exposed container
+filename: the file name of the exposed bundle in MF
+exposes: path to the shared modules
+shared: essential configuration, allowing you to share libraries on which the exposed module
+depends to run 
+
+The ModuleFederationPlugin facilitates applications exposing and consuming modules to enable the Module Federation implementation.
+
+module federation examples: https://github.com/module-federation/module-federation-examples
+
+Webpack Module Federation is a feature that enables loading separately compiled applications at runtime and allows 
+sharing of common dependencies. With its wide array of benefits and runtime integration ability, 
+Module Federation is a great feature for micro-frontends and plugin systems.
+
+It is a highly beneficial solution to consider in your project, especially with its scalability in sharing 
+code among independent applications,  which is bound to improve the overall performance.
+
